@@ -1,6 +1,5 @@
 package com.manduu.jpaShop.domain;
 
-import com.manduu.jpaShop.domain.item.Category;
 import lombok.Getter;
 import lombok.Setter;
 
