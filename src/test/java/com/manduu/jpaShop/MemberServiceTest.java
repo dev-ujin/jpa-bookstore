@@ -24,6 +24,7 @@ public class MemberServiceTest {
     @Autowired MemberRepository memberRepository;
 
     @Test
+    @Rollback(false)
     public void 회원가입() throws Exception {
         //given
         Member member = new Member();
