@@ -4,11 +4,14 @@ import com.manduu.jpaShop.domain.*;
 import com.manduu.jpaShop.repository.ItemRepository;
 import com.manduu.jpaShop.repository.MemberRepository;
 import com.manduu.jpaShop.repository.OrderRepository;
+import com.manduu.jpaShop.repository.OrderSearch;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -44,7 +47,7 @@ public class OrderService {
     * 주문 취소
     * */
     @Transactional
-    public void cancel(Long orderId) {
+    public void cancelOrder(Long orderId) {
         Order order = orderRepository.findOne(orderId);
         order.cancel();
     }
@@ -52,7 +55,7 @@ public class OrderService {
     /*
     * 주문 검색
     * */
-    /*public List<Order> findOrders(OrderSearch orderSearch) {
-        return orderRepository.findAll(orderSearch);
-    }*/
+    public List<Order> findOrders(OrderSearch orderSearch) {
+        return orderRepository.findAllByCriteria(orderSearch);
+    }
 }
