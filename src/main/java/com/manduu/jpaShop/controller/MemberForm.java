@@ -1,13 +1,14 @@
 package com.manduu.jpaShop.controller;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
+
+import javax.validation.constraints.NotEmpty;
 
 @Getter @Setter
 public class MemberForm {
 
-    @NonNull
+    @NotEmpty(message = "이름을 입력하세요")
     private String name;
 
     private String city;
